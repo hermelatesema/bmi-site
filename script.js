@@ -8,39 +8,45 @@ function getBMICategory(bmi) {
   return "Obese";
 }
 
-function getMessage(bmi, category, activity) {
+function getMessage(bmi, category, activity, gender) {
   if (!bmi || isNaN(bmi)) {
     return "Fill out the form above and click “Calculate BMI” to see your result.";
   }
 
-  let base = `Your BMI is ${bmi.toFixed(
-    1
-  )}, which falls in the “${category}” range. `;
-  let tip = "";
+  let message = `Your BMI is ${bmi.toFixed(1)}, which places you in the “${category}” category. `;
 
+  // Category-based info
   if (category === "Underweight") {
-    tip =
-      "If you're concerned, consider talking with a health professional about gentle ways to support your body.";
+    message += "This may indicate that you are below a typical healthy weight range. ";
   } else if (category === "Healthy") {
-    tip = "This is generally considered a healthy range. Keep focusing on habits that make you feel good.";
+    message += "This is generally considered a healthy weight range. ";
   } else if (category === "Overweight") {
-    tip =
-      "Small, steady changes in movement and nutrition can have a positive impact over time.";
+    message += "This means you may benefit from small, sustainable lifestyle adjustments. ";
   } else {
-    tip =
-      "You might benefit from checking in with a doctor to build a plan that feels safe and realistic for you.";
+    message += "This suggests a higher risk category. Gentle, long-term changes may help. ";
   }
 
+  // Gender-specific context
+  if (gender === "female") {
+    message += "For women, BMI categories can sometimes shift depending on muscle mass, hormonal cycles, and body composition. ";
+  } else if (gender === "male") {
+    message += "For men, BMI may underestimate fat levels if muscle mass is low. ";
+  } else if (gender === "nonbinary") {
+    message += "BMI categories are based on older binary systems and may not reflect everyone’s body accurately. ";
+  }
+
+  // Activity-based suggestions
   if (activity === "low") {
-    tip += " You selected a low activity level, so starting with short walks or light stretching can help.";
+    message += "Starting with light daily movement, such as 10–15 minute walks, can help. ";
   } else if (activity === "moderate") {
-    tip += " With a moderate activity level, you could gently add a bit more movement each week.";
+    message += "Adding small increases in movement or strength training may be helpful. ";
   } else if (activity === "high") {
-    tip += " Since you're already active, focus on rest, recovery, and balanced routines.";
+    message += "Maintaining balanced workouts with recovery days is important. ";
   }
 
-  return base + tip;
+  return message;
 }
+
 
 function handleBMIForm(event) {
   event.preventDefault();
