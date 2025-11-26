@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pacific Wellness BMI Calculator</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;700&family=Montserrat:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="theme-light">
+  <!-- Skip link for keyboard users -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <span class="logo-mark" aria-hidden="true">PW</span>
+        <span class="logo-text">Pacific Wellness</span>
+      </div>
+
+      <nav class="site-nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#calculator">BMI Check</a></li>
+          <li><a href="#tips">Tips</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section id="hero" class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <h1>Find Your Fitness Starting Point</h1>
+          <p>
+            Use this beginner-friendly BMI calculator to quickly understand
+            your current fitness level and get gentle suggestions for what to do next.
+          </p>
+          <a class="btn btn-primary" href="#calculator">Start BMI Check</a>
+        </div>
+
+        <div
+          class="hero-illustration"
+          role="img"
+          aria-label="Abstract illustration of progress and wellness"
+        ></div>
+      </div>
+    </section>
+
+    <!-- BMI CALCULATOR -->
+    <section id="calculator" class="section section-surface">
+      <div class="container">
+        <header class="section-header">
+          <h2>BMI Calculator</h2>
+          <p>
+            Enter your height and weight to see your BMI and category. This is
+            a simple educational tool and does not replace medical advice.
+          </p>
+        </header>
+
+        <form id="bmi-form" class="card bmi-form" aria-label="BMI calculator">
+          <div class="field-grid">
+            <div class="field">
+              <label for="height">
+                Height (cm)
+                <span class="field-help" id="height-help">
+                  Example: 165
+                </span>
+              </label>
+              <input
+                type="number"
+                id="height"
+                name="height"
+                min="80"
+                max="250"
+                step="0.1"
+                aria-describedby="height-help"
+                placeholder="e.g., 165"
+                required
+              />
+            </div>
+
+            <div class="field">
+              <label for="weight">
+                Weight (kg)
+                <span class="field-help" id="weight-help">
+                  Example: 70
+                </span>
+              </label>
+              <input
+                type="number"
+                id="weight"
+                name="weight"
+                min="20"
+                max="300"
+                step="0.1"
+                aria-describedby="weight-help"
+                placeholder="e.g., 70"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="activity">
+              Activity level
+              <span class="field-help" id="activity-help">
+                This helps us suggest gentle starting goals.
+              </span>
+            </label>
+            <select
+              id="activity"
+              name="activity"
+              aria-describedby="activity-help"
+              required
+            >
+              <option value="">Select an option</option>
+              <option value="low">Low (mostly sitting)</option>
+              <option value="moderate">Moderate</option>
+              <option value="high">High (regular exercise)</option>
+            </select>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">
+              Calculate BMI
+            </button>
+            <p class="form-note">
+              We never store your information. Everything stays in your browser.
+            </p>
+          </div>
+        </form>
+
+        <!-- Results -->
+        <section
+          class="card results"
+          aria-label="BMI results"
+          aria-live="polite"
+        >
+          <h3>Your BMI Results</h3>
+
+          <div class="results-summary">
+            <div class="results-block">
+              <span class="results-label">BMI</span>
+              <span id="bmi-value" class="results-value">--</span>
+            </div>
+            <div class="results-block">
+              <span class="results-label">Category</span>
+              <span id="bmi-category" class="results-value">
+                Not calculated yet
+              </span>
+            </div>
+          </div>
+
+          <p id="bmi-message" class="results-message">
+            Fill out the form above and click “Calculate BMI” to see your result.
+          </p>
+
+          <div class="results-bar" aria-hidden="true">
+            <span class="bar-segment segment-underweight">Underweight</span>
+            <span class="bar-segment segment-healthy">Healthy</span>
+            <span class="bar-segment segment-overweight">Overweight</span>
+            <span class="bar-segment segment-obese">Obese</span>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- TIPS / CARDS -->
+    <section id="tips" class="section">
+      <div class="container">
+        <header class="section-header">
+          <h2>Gentle Next Steps</h2>
+          <p>
+            No matter your BMI, small consistent actions make a big difference.
+            Here are a few beginner-friendly ideas.
+          </p>
+        </header>
+
+        <div class="card-grid">
+          <article class="card feature-card">
+            <h3>Start With Movement</h3>
+            <p>
+              Try a short daily walk, light stretching, or a beginner workout
+              video a few times a week. Choose something that feels kind to your body.
+            </p>
+          </article>
+
+          <article class="card feature-card">
+            <h3>Check In With Yourself</h3>
+            <p>
+              Notice your energy, mood, and sleep. Use your BMI as information,
+              not a judgment, and talk to a health professional if you have concerns.
+            </p>
+          </article>
+
+          <article class="card feature-card">
+            <h3>Set Realistic Goals</h3>
+            <p>
+              Focus on simple goals like “move 10 minutes a day” or “drink more
+              water” instead of chasing quick changes.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section section-surface">
+      <div class="container">
+        <header class="section-header">
+          <h2>About This App</h2>
+        </header>
+        <div class="card">
+          <p>
+            Pacific Wellness BMI is a small web app built to help people
+            understand their fitness starting point in a calm and supportive way.
+            It combines a simple BMI calculator with gentle guidance on what to
+            do next.
+          </p>
+          <p>
+            This tool is educational only and does not replace personalized
+            advice from a doctor or other health professional.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>
+        &copy; <span id="year"></span> Pacific Wellness. All rights reserved.
+      </p>
+      <p class="footer-note">
+        Built for learning and early fitness exploration.
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
